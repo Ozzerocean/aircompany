@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "mocha": "^6.2.0",
+    "jenkins-mocha": "latest",
     "chai": "^4.2.0"
   }
 }
