@@ -6,6 +6,14 @@ class experimentalPlane extends Plane {
         this.type = type;
         this.classificationLevel = classificationLevel;
     }
+
+    getType() {
+        return this.type;
+    }
+
+    getClassificationLevel() {
+        return this.classificationLevel;
+    }
 }
 
 module.exports = experimentalPlane;

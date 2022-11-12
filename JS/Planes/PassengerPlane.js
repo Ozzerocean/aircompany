@@ -5,6 +5,10 @@ class PassengerPlane extends Plane {
         super(model, maxSpeed, maxFlightDistance, maxLoadCapacity);
         this.passengersCapacity = passengersCapacity;
     }
+
+    getPassengersCapacity() {
+        return this.passengersCapacity;
+    }
 }
 
 module.exports = PassengerPlane;

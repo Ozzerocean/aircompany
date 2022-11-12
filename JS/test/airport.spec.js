@@ -47,8 +47,9 @@ describe('Test', () => {
     it('Should sort passenger planes by max capacity', () => {
         let airport = new Airport(planes);
         airport.sortByMaxLoadCapacity();
-        for (let i = 0; i < airport.planes.length - 1; i++) {
-            assert.isFalse(airport.planes[i].minLoadCapacity > airport.planes[i + 1].minLoadCapacity);
+        let planesSortedByMaxLoadCapacity = airport.getPlanes()
+        for (let i = 0; i < planesSortedByMaxLoadCapacity.length - 1; i++) {
+            assert.isFalse(planesSortedByMaxLoadCapacity[i].getMaxLoadCapacity() > planesSortedByMaxLoadCapacity[i + 1].getMaxLoadCapacity());
         }
     });
 
@@ -64,7 +65,7 @@ describe('Test', () => {
         let airport = new Airport(planes);
         let experimentalPlanes = airport.getExperimentalPlanes();
         for (let experimentalPlane of experimentalPlanes) {
-            assert.isFalse(experimentalPlane.classificationLevel === ClassificationLevel.UNCLASSIFIED);
+            assert.isFalse(experimentalPlane.getClassificationLevel() == ClassificationLevel.UNCLASSIFIED);
         }
     });
 

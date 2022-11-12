@@ -8,7 +8,11 @@ class Airport {
         this.planes = planes;
     }
 
-     getPassengerPlanes() {
+    getPlanes() {
+        return this.planes;
+    }
+
+    getPassengerPlanes() {
         var passengerPlanes = [];
         for (let plane of this.planes) {
             if (plane instanceof PassengerPlane) {
@@ -32,7 +36,7 @@ class Airport {
         let passengerPlanes = this.getPassengerPlanes();
         let planeWithMaxCapacity = passengerPlanes[0];
         for (let i = 1; i < passengerPlanes.length; i++) {
-            if (passengerPlanes[i].passengersCapacity > planeWithMaxCapacity.passengersCapacity) {
+            if (passengerPlanes[i].getPassengersCapacity() > planeWithMaxCapacity.getPassengersCapacity()) {
                 planeWithMaxCapacity = passengerPlanes[i];
             }
         }
@@ -43,7 +47,7 @@ class Airport {
         let transportMilitaryPlanes = [];
         let militaryPlanes = this.getMilitaryPlanes();
         for (let i = 0; i < militaryPlanes.length; i++) {
-            if (militaryPlanes[i].militaryType == MilitaryType.TYPE_TRANSPORT) {
+            if (militaryPlanes[i].getMilitaryType() == MilitaryType.TYPE_TRANSPORT) {
                 transportMilitaryPlanes.push(militaryPlanes[i]);
             }
         }
@@ -55,7 +59,7 @@ class Airport {
         let bomberMilitaryPlanes = [];
         let militaryPlanes = this.getMilitaryPlanes();
         for (let i = 0; i < militaryPlanes.length; i++) {
-            if (militaryPlanes[i].militaryType == MilitaryType.TYPE_BOMBER) {
+            if (militaryPlanes[i].getMilitaryType() == MilitaryType.TYPE_BOMBER) {
                 bomberMilitaryPlanes.push(militaryPlanes[i]);
             }
         }
@@ -73,17 +77,17 @@ class Airport {
     }
 
     sortByMaxDistance() {
-        this.planes.sort((a, b) => (a.maxFlightDistance > b.maxFlightDistance) ? 1 : -1);
+        this.planes.sort((a, b) => (a.getMaxFlightDistance() > b.getMaxFlightDistance()) ? 1 : -1);
         return this;
     }
 
     sortByMaxSpeed() {
-        this.planes.sort((a, b) => (a.maxSpeed > b.maxSpeed) ? 1 : -1);
+        this.planes.sort((a, b) => (a.getMaxSpeed() > b.getMaxSpeed()) ? 1 : -1);
         return this;
     }
 
     sortByMaxLoadCapacity() {
-        this.planes.sort((a, b) => (a.maxLoadCapacity > b.maxLoadCapacity) ? 1 : -1);
+        this.planes.sort((a, b) => (a.getMaxLoadCapacity() > b.getMaxLoadCapacity()) ? 1 : -1);
         return this;
     }
 

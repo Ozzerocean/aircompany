@@ -5,6 +5,10 @@ class MilitaryPlane extends Plane {
         super(model, maxSpeed, maxFlightDistance, maxLoadCapacity);
         this.militaryType = militaryType;
     }
+
+    getMilitaryType() {
+        return this.militaryType;
+    }
 }
 
 module.exports = MilitaryPlane;
