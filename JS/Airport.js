@@ -12,7 +12,7 @@ class Airport {
         var passengerPlanes = [];
         for (let plane of this.planes) {
             if (plane instanceof PassengerPlane) {
-                passengerPlanes.push(p);
+                passengerPlanes.push(plane);
             }
         }
         return passengerPlanes;
